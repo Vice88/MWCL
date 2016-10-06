@@ -1,0 +1,418 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[journal]{IEEEtran}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% =============================================================================
+% Include packages
+% =============================================================================
+
+\usepackage[cmex10]{amsmath}  % needed e.g. for align-environment
+\usepackage{amssymb}  % needed e.g. for \lesssim
+\usepackage{cite}
+\usepackage[capitalise]{cleveref}  % auto-prepend Eq., Fig., Tab., etc.
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[utf8x]{inputenc}
+\usepackage{microtype}  % improves readability and saves space
+\usepackage{siunitx}  % for correct typesetting of units, e.g. ohm
+%\usepackage{subcaption}
+\usepackage{upgreek}  % needed for bold 'micro' sign in abstract
+\usepackage{xspace}  % needed for bold 'micro' sign in abstract
+
+\usepackage{tikz}
+
+% =============================================================================
+% Own macros
+% =============================================================================
+
+% Define dBm as \dbm and re-define dB as \db. This is against the rules of
+% siunitx, which prefers defining dB as \deci\bel (hence, dBm would be defined
+% as \deci\belm.
+
+\DeclareSIUnit\db{dB}
+\DeclareSIUnit\dbm{dBm}
+
+\DeclareSIUnit\MHz{MHz}
+\DeclareSIUnit\GHz{GHz}
+
+\newcommand{\boldum}{\,\boldmath$\upmu$m\xspace}  % bold 'um' in abstract
+
+\newcommand{\VDC}{V_\text{DC}}    % DC voltage
+\newcommand{\IDC}{I_\text{DC}}    % DC current
+\newcommand{\PDC}{P_\text{DC}}    % DC power
+\newcommand{\pDC}{p_\text{DC}}    % DC power, normalized
+\newcommand{\PRF}{P_\text{RF}}    % fundamental RF power
+\newcommand{\pRF}{p_\text{RF}}    % fundamental RF power, normalized
+\newcommand{\etaD}{\eta_\text{D}} % drain efficiency
+
+\newcommand{\vB}{v_\text{B}}   % normalized class-B voltage
+\newcommand{\Vk}{V_\text{k}}   % knee voltage
+\newcommand{\vJ}{v_\text{J}}   % normalized reactive class-J voltage
+\newcommand{\vRJ}{v_\text{RJ}} % normalized resistive-reactive class-J voltage
+
+% =============================================================================
+% Own setup
+% =============================================================================
+
+% setup the graphics path and their extensions so you won't have to specify these 	  with every instance of \includegraphics
+\graphicspath{{graphics/}}
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.pdf_tex}
+
+% font of si units adapted by the font of the environment
+\sisetup{detect-all=true}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\title{Investigation and Realisation of a Riemann Pump in 250nm GaN Technology for the Frequency of \SI{100}{\MHz}}
+
+\author{%
+	Markus~Wei\ss{},
+    Christian~Friesicke,
+    R\"{u}diger~Quay,
+    and~Oliver~Ambacher\\
+    Fraunhofer Institute for Applied Solid State Physics\\
+    Freiburg, Germany\\
+    markus.weiss@iaf-extern.fraunhofer.de%	markus.weiss@iaf-extern.fraunhofer.de
+    %
+    \thanks{%
+      Manuscript received March 19, 2015;
+      revised May 26, 2015;
+      accepted July 19, 2015.
+      Date of publication Month XX, 2015;
+      date of current version July 29, 2015.
+      This work was supported and funded by the German Space Management
+      (DLR) on behalf of the German Ministry of Economics and Technology (BMWi)
+      under research contracts 50YB1128 and 50YB1504.%
+    }%
+    \thanks{
+      C. Friesicke and A.~F. Jacob are with the Institut f\"{u}r
+      Hochfrequenztechnik, Technische Universit\"{a}t Hamburg-Harburg, 21073
+      Hamburg, Germany (E-mail: cfriesicke@ieee.org).%
+    }%
+    \thanks{R.~Quay is with the Fraunhofer Institute for Applied Solid-State
+      Physics (IAF), 79108 Freiburg, Germany.%
+    }%
+    \thanks{%
+      Color versions of one or more of the figures in this letter are available
+      online at http://ieeexplore.ieee.org.}
+    \thanks{%
+      Digital Object Identifier 10.1109/LMWC.2015.XXXXXXX%
+    }%
+}
+
+\markboth{IEEE Microwave Wireless and Components Letters,%
+          Vol. XX, No. X, Month 20YY}%
+         {Friesicke \MakeLowercase{\textit{et al.}}:
+          The Resistive-Reactive Class-J Power Amplifier Mode}
+
+\maketitle
+
+
+% =============================================================================
+% Abstract
+% =============================================================================
+
+\begin{abstract}
+
+A novel architecture for a digital-to-analog converter is investigated, yielding an arbitrary waveform generator.\\%%
+\textit{This letter introduces a theory which considers the effect of lossy
+second-harmonic terminations on the voltage waveform, output power, and
+efficiency of power amplifiers (PAs) operated in the class-J mode. To this end,
+the conventional (reactive) class-J mode is extended to a resistive-reactive
+class-J mode with complex fundamental and second-harmonic load impedances.
+The theory is experimentally validated by performing on-wafer active load-pull
+measurements on an AlGaN/GaN HEMT power device with 0.25\boldum gate length and
+a total gate periphery of 6$\times$200\boldum. The measured waveforms are
+de-embedded to the internal current-generator of the device, where they exhibit
+the theoretically predicted behavior.}
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+  AWG, DAC, transmitter architecture.
+\end{IEEEkeywords}
+
+
+% =============================================================================
+% Introduction
+% =============================================================================
+
+\section{Introduction}
+\label{sec:introduction}
+{\itshape \IEEEPARstart{A}{part} from output power and efficiency, research increasingly
+focuses on bandwidth as an additional critical parameter of power amplifiers
+(PAs) for wireless systems. This results from the higher data rates of current
+systems and from the trend towards frequency agility or multi-band operation.
+%
+Conventional high-efficiency PA modes such as class-B, class-F, or inverse
+class-F are not suitable for wideband PA realizations because they require
+resonant harmonic loads (open or short circuits). This restriction is overcome
+by continuous PA modes such as class-J crippscontinuity2009,
+continuous class-F
+citecarrubbacontinuous2010,
+or continuous inverse class-Fcitecarrubbaexploring2011, friesickemode2011.
+%
+The class-J mode is based on the class-AB/B mode but adds a reactance to the
+fundamental load, which is compensated by a second-harmonic reactance with
+opposite sign. It maintains the same efficiency and power as class-AB/B,
+however, at the expense of higher peak voltages. Class-J (and the other
+continuous modes) rely on purely reactive harmonic loads. Therefore, the
+fundamental band (complex loads) can not overlap with the second-harmonic band
+(pure reactances). This separation limits the theoretically achievable
+bandwidth to 70.7\%. In practice, the transition region between the bands
+further reduces the bandwidth. If this region is used, wider bandwidths can be
+achieved but lossy harmonic loads must be accepted
+cite{preisdesign2014,anderssondecade2012}.
+%
+Theories that include harmonic losses exist for continuous class-F
+cite{carrubbaextension2011}
+and continuous inverse class-F
+cite{carrubbacontinuous2012}.
+This letter presents a theory that considers second-harmonic losses in the
+class-J PA mode. The theory is described in \cref{sec:theory}, where the
+effects of losses on voltage waveforms, power, and efficiency are calculated,
+and the relation between optimum fundamental load and complex second-harmonic
+load is derived. \cref{sec:experiment} validates the theory by presenting
+on-wafer active harmonic load-pull measurements of a GaN HEMT device.}
+%
+%
+\section{Concept of the Riemann Pump circuit}
+\label{sec:theory}
+%
+This section describes how to get %the process of getting
+a digital-to-analog converter from the concept of a charge pump.
+The idea of the Riemann Pump %concept of the digital-to-analog converter, named Riemann Pump, 
+is based on the current steering topology.
+%The concept of a charge pump is to integrate, over time, the current flowing through and away from a capacitor to obtain a voltage.
+%In the following this principle is used to synthesize arbitrary signal waveforms.
+Using this technique it is possible to synthesize arbitrary signal waveforms.
+The output voltage waveform is generated by the integration of different current amplitudes over time at a capacitor, see Equation \ref{eq:current_nomenclature_and_classb}.
+%
+\begin{align}
+  V_{out} =  \frac{1}{C_{out}} \int_0^t \! i_{out}(\tau) \, \mathrm{d}\tau.
+    \label{eq:current_nomenclature_and_classb}
+\end{align}
+%
+%The integration of the current over the time at a capacity is forming the output voltage signal.
+Absolutely essential to generate different output signals is to establish different currents to charge and discharge the output capacitor.
+%To generate different output signals it is necessary to establish different constant current amplitudes to charge and discharge the capacitor.
+For a high signal integrity consistent current sources (VCCS) are needed.
+To explain the concept in a proper way, eight different currents are established which corresponds to a three bit digital-to-analog converter.
+Figure \ref{fig:SlopeSynthSignal} shows the eight different slopes and an example of a sampled output signal using these slopes to synthesize an analog signal.
+%
+% -----------------------------------------------------------------------------
+\begin{figure}[htb]
+  \centering
+	\begin{scriptsize}
+  	\def\svgwidth{\columnwidth}
+ 	\input{graphics/SlopeSynthSignal.pdf_tex} 
+  	\caption{(a) Representation of relative slopes and (b) signal generation with riemann code.}
+  	\label{fig:SlopeSynthSignal}
+	\end{scriptsize}
+\end{figure}
+% -----------------------------------------------------------------------------
+%
+To generate these eight different currents the concept of a charge pump in a push-pull configuration is used.
+The pushing transistors contribute to an increase of the output signal while the pulling transistors decrease the amplitude of the output signal.
+Mandatory for the correct functioning of the push-pull configuration is a digital driver circuit, so the pushing transistors switch correctly on/off because they do not have a source grounding.
+To ensure the correct switching of the voltage controlled current source to the top rail a proper driver circuit is needed. 
+Figure \ref{fig:schematic_multibit_rp} shows the schematic of the Riemann Pump, where the single stages are cascaded in parallel.
+%
+% -----------------------------------------------------------------------------
+\begin{figure}[htb]
+  \centering
+	\begin{scriptsize}
+  	\def\svgwidth{\columnwidth}
+ 	\input{graphics/schematic_RP_multibit_smallScale.pdf_tex} 
+  	\caption{Schematic of the riemann pump. Marked on the left side is the driver circuit which is necessary. The push-pull stages are/were connected in parallel.}
+  	\label{fig:schematic_multibit_rp}
+	\end{scriptsize}
+\end{figure}
+% -----------------------------------------------------------------------------
+The dimension of the power transistors in parallel is increased linearly with the power of 2 to ensure the correct encryption by eight bits.
+% each higher power transistor is double the size of the former one...
+A huge advantage of this technology is, that it is able to provide high power while having an immense switching speed and hence synthesize a signal with high integrity.
+In fact of this the load of a the push-pull stage can be implemented as a power amplifier which is directly connected to the antenna for wave propagation.
+Therefore much external components are not necessary.
+The load of the described concept consists of the input impedance of a power amplifier which amplifies the signal and propagate it to the antenna.
+The charging and discharging of the capacitive input impedance of the power amplifier led to the possibility to generate arbitrary waveforms.
+%% -----------------------------------------------------------------------------
+%\section{Output signal simulation of the Riemann Pump}
+%\label{sec:simulation}
+%% -----------------------------------------------------------------------------
+%This section describes the simulation results of the presented concept.
+%The circuit used for this simulation is based on the assembled device under test, to ensure proper comparison of the results.
+%The simulation confirms the possibility to generate different signals using this concept.
+%Figure \ref{fig:input_ctrl_signal} shows the input signal (digital) used to control the DAC.
+
+
+% -----------------------------------------------------------------------------
+\section{Implementation and assembly of a demonstrator}
+\label{sec:assembly}
+% -----------------------------------------------------------------------------
+To proof the investigated concept of the Riemann Pump, to the best of the author's knowledge, the first ever built demonstrator is presented.
+%The first ever built demonstrator to proof the concept of the Riemann Pump is presented in the following subsection.
+For the digital switching of the power transistors a MMIC is used which has already implemented a proper driver circuit and power transistor.
+The MMIC is of assistance in this realisation of a Riemann Pump while it has the conventional application in a Class-S amplifier.
+Figure \ref{fig:assembled_demonstrator} (a) illustrates the schematic where the grey painted area shows a single MMIC.
+%
+% -----------------------------------------------------------------------------
+\begin{figure}[htb]
+  \centering
+	\begin{scriptsize}
+  	\def\svgwidth{\columnwidth}
+ 	\input{graphics/circuit_schematic_layout_ddrixy6.pdf_tex} 
+  	\caption{(a)Schematic of assembly; grey highlighted the used MMICs. (b) Assembled demonstrator layout.}
+  	\label{fig:assembled_demonstrator}
+	\end{scriptsize}
+\end{figure}
+% -----------------------------------------------------------------------------
+%
+The green shapes in Figure \ref{fig:assembled_demonstrator} (b), which illustrates the layout of the realised Riemann Pump using the mentioned MMICs, represents MIM capacitors.
+These are of importance because they built a decoupling network on the DC supply lines with other greater capacitors.
+In order to reduce the impact of phase delays of the signal the input and output lines are of the same length, as well as the bond wires.
+%Input and output lines and bond wiring are of the same length to reduce the impact of phase delay of the signal.
+A critical point/ disadvantage of the used MMICs is that their source potential is led to the backside metallisation to ensure proper heat transfer, while the source potential is on ground.
+The problem in this approach is to drive the power transistor to the upper power rail while the source potential is on the output potential of the ic.
+To manage the problem the mmic used for the push stage are bonded onto a isolated pad to the substrate.
+In fact of this the heat transfer is not optimal since the transistors generate several watts.
+%A filter network is used to reduce the noise.
+%Also two different layouts are designed to compare the property of heat transfer.
+% Each MMIC used in this work consists of the elements shown in Fig \ref{fig:schematic_multibit_rp} for the low side, which include the driver circuit of two transistors and the resistor plus the output power transistor.
+In fact of the assembly, one version used a isolated pad in fact of the undesired backside metallisation of the chip.
+This is undesired since the output of the high side stage is the source pin.
+For the low side the source pin is grounded and the output is the drain of the power amplifier.
+
+% -----------------------------------------------------------------------------
+\begin{figure}[htb]
+  \centering
+	\begin{scriptsize}
+  	\def\svgwidth{\columnwidth}
+ 	\input{graphics/PhotoChipConnect_Demonstrator.pdf_tex} 
+  	\caption{(a) Chipconnection Photo, (b) realized demonstrator.}
+  	\label{fig:photo_chipconnection_demonstrator}
+	\end{scriptsize}
+\end{figure}
+% -----------------------------------------------------------------------------
+
+
+
+
+%% -----------------------------------------------------------------------------
+%\begin{figure}[tb]
+%  \centering
+%  \includegraphics{circuit_schematic_layout_ddrixy6}
+%  \caption{Assembled hybrid demonstrator.}
+%  \label{fig:assembled_demonstrator}
+%\end{figure}
+%% -----------------------------------------------------------------------------
+
+
+% ------------------------------------------------------------------------------
+\section{Time domain measurement of synthesized output signal compared to simulation}
+\label{sec:experiment}
+% ------------------------------------------------------------------------------
+
+The theoretical waveforms are experimentally verified using the demonstrator which is assembled with four MMICs as shown in Figure \ref{fig:assembled_demonstrator} (b). 
+The MMICs are designed and fabricated in the \SI{0.25}{\micro\meter} AlGaN/GaN HEMT technology by Fraunhofer IAF and consists of an input driver stage with a power transistor.
+For the time domain measurement at the output of the DAC a special control strategy was applied.
+Four input signals have to be applied to test the two bit resolution of the device. These differential input signals were generated by an AWG (Keysight) to represent a digital data stream. 
+To ensure proper switching of the depletion-mode gallium nitride high electron mobility transistors, the amplitude of the square wave input signal had to be at least 3.5V.\\
+
+\subsection{Time domain measurement with resistive load}
+A short stability check ensured that the device under test does not oscillate.
+Further the switches are controlled with an synchronous signal leading to a push-pull measurement with resistive load.
+Hence the output signal switches between ground and vdd as can be seen in Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(b) for the input signal Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(a).
+
+%The results show the feasibility to generate an analog output signal by converting a digital input signal.
+
+
+% -----------------------------------------------------------------------------
+\begin{figure}[htb]
+  \centering
+	\begin{scriptsize}
+  	\def\svgwidth{\columnwidth}
+ 	\input{graphics/meas_Input_Output_RLoad_100M_SmallSize_Paper.pdf_tex} 
+  	\caption{(a) Differential input control signal and (b) corresponding output signal; (b.1) dashed theoretical signal, (b.2) measured signal.}
+  	\label{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}
+	\end{scriptsize}
+\end{figure}
+% -----------------------------------------------------------------------------
+
+%% -----------------------------------------------------------------------------
+%\begin{figure}[htb]
+%  \centering
+%  \includegraphics{meas_Input_Output_RLoad_100M_SmallSize_Paper}
+%  \caption{(a) Differential input control signal and (b) corresponding output signal.}
+%  \label{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}
+%\end{figure}
+%% -----------------------------------------------------------------------------
+
+Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper} (a) shows the differential input control signal with an amplitude (peak-to-peak voltage) of 0.7V and a frequency of 100MHz in the time domain.
+Controlling the device under test with this signal led to the output signal in Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper} (b).
+The black dashed line represents the output of an ideal switch while the grey continuous line shows the measured output signal for the push-pull concept of the DUT.
+
+
+
+
+\subsection{Time domain measurement with capacitive load}
+After the successful measurement of the push-pull stage, the feasibility of generating different slopes are measured.
+Each stage of the two bit resolution had to be controlled inverse with respect to the other.
+To detect the different slopes and hence the different currents a capacitive load was charged to illustrate the different output voltage waveforms, see Figure \ref{fig:meas_Output_CLoad_100M_1io_3io}.
+
+% ------------------------------------------------------------------------------
+% !! identical notation regarding color of the measurement data and simulation 			 results!! Also the appearance!!
+% !! technical regarding -> 3i0 do not scale with 3 times 1i0 !
+% !! corresponding simulation data !!
+\begin{figure}[htb]
+  \centering
+  \includegraphics{meas_Output_CLoad_100M_1i0_3i0}
+  \caption{
+    Dashed line theoretical slope; solid black line measurement. Slope of (a) $\pm 1  i_0$ and (b) $\pm 3 i_0$.}
+  \label{fig:meas_Output_CLoad_100M_1io_3io}
+\end{figure}
+% -----------------------------------------------------------------------------
+
+
+% ------------------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+% ------------------------------------------------------------------------------
+{\itshape
+This letter presents a theory which considers second-harmonic losses in the
+class-J PA mode. The theory predicts internal voltage waveforms, expressions
+for power and efficiency and derives optimum fundamental impedances depending
+on the second-harmonic loss. Load-pull measurements of a
+6$\times$\SI{200}{\micro\meter} GaN HEMT device confirm the predicted waveforms
+and validate the theoretical power and efficiency results. The theory may be
+used to determine efficiency--bandwidth tradeoffs in wideband class-J PAs with
+lossy second-harmonic loads.
+
+}
+% ------------------------------------------------------------------------------
+% Appendices
+% ------------------------------------------------------------------------------
+
+\section*{Acknowledgement}
+{\itshape
+The authors would like to thank Thomas Maier at Fraunhofer IAF for carrying out
+the load-pull measurements.
+}
+
+% ------------------------------------------------------------------------------
+% References
+% ------------------------------------------------------------------------------
+
+%\bibliographystyle{IEEEtran}
+%\bibliography{IEEEabrv,refs}
+
+\end{document}
+
+% EOF
