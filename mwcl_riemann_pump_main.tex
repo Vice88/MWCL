@@ -209,10 +209,13 @@ This technique made it possible to synthesize arbitrary signal waveforms by vary
     \label{eq:current_nomenclature_and_classb}
 \end{align}
 %
-Absolutely essential to generate different output signals is to establish different current amplitudes to charge and discharge the output capacitor.
+Absolutely essential to convert digital input data into a defined analog output signal is to establish a defined set of current amplitudes which charge and discharge the output capacitance.
+%generate different output signals is to establish different current amplitudes to charge and discharge the output capacitor.
 %To generate different output signals it is necessary to establish different constant current amplitudes to charge and discharge the capacitor.
-Consistent current sources as well as a high sampling frequency were needed to ensure a high signal integrity.
-In Fig. \ref{fig:SlopeSynthSignal}(a) eight different slopes represent four different current amplitudes plus their direction times the sampling interval.
+For a high signal integrity of the synthesized signal, a high sampling frequency as well as consistent current sources were needed.
+%Consistent current sources as well as a high sampling frequency were needed to ensure a high signal integrity.
+In Fig. \ref{fig:SlopeSynthSignal}(a) eight different slopes represent the change of the output voltage for a given sampling interval.
+% four different current amplitudes plus their direction times the sampling interval.
 These eight slopes correspond to a three bit resolution of the DAC. 
 %To explain the concept in a proper way, eight different currents are established which corresponds to a three bit digital-to-analog converter.
 Figure \ref{fig:SlopeSynthSignal}(b) illustrates an example of a synthesized output signal using these slopes.
@@ -254,12 +257,15 @@ Figure \ref{fig:schematic_multibit_rp} shows the schematic of the Riemann Pump, 
 	\end{scriptsize}
 \end{figure}
 % -----------------------------------------------------------------------------
-The dimension of the power transistors in parallel is increased linearly with the power of 2 to ensure the correct encryption by eight bits.
+The dimension of the power transistors in parallel is increased linearly with the power of 2 to ensure the correct encryption.
+The digital driver circuit is marked with the dashed line and is necessary for each single stage cascaded in parallel.
 % each higher power transistor is double the size of the former one...
-A huge advantage of this technology is, that it is able to provide high power while having an immense switching speed and hence synthesize a signal with high integrity.
-In fact of this the load of a the push-pull stage can be implemented as a power amplifier which is directly connected to the antenna for wave propagation.
-Therefore much external components are not necessary.
-Since the input impedance characteristic of a power transistor is capacitive this is utilized to generate the output signal.
+An implemented power amplifier, serving as the output load, makes the use of a RFFE unnecessary.
+This technology is capable to provide high power at high switching frequencies, which is intended to get a high sampling rate and hence a high signal integrity.
+%A huge advantage of this technology is, that it is able to provide high power while having an immense switching speed and hence synthesize a signal with high integrity.
+%In fact of this the load of a the push-pull stage can be implemented as a power amplifier which is directly connected to the antenna for wave propagation.
+%Therefore much external components are not necessary.
+%Since the input impedance characteristic of a power transistor is capacitive this is utilized to generate the output signal.
 %The load of the described concept consists of the input impedance of a power amplifier which amplifies the signal and propagate it to the antenna.
 %The charging and discharging of the capacitive input impedance of the power amplifier led to the possibility to generate arbitrary waveforms.
 %% -----------------------------------------------------------------------------
