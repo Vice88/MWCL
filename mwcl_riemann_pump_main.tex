@@ -121,27 +121,22 @@
 
 \begin{abstract}
 %
-A novel architecture for a digital-to-analog converter is investigated, yielding an arbitrary waveform generator.
-digital high speed gan driver. 
-brandnew concept and integration of a push pull stage for high power applications.
-novel circuit design regarding concept.
-intelligent assembly for signal lines, also thermal transfer is improved considered.
-very clever measurement strategies.
-since input control strategy is not the easiest, input buffer not available.
-signal generator + preamp + bias tee (wideband since digital signals).
-output measurement results - different signal synthesis.
-DIGITAL HIGH SPEED DRIVER FOR GAN POWER APPLICATION.
-FIRST EVER BUILT GAN DEMONSTRATOR FOR THE CONCEPT OF RP.\\%%
-\textit{This letter introduces a theory which considers the effect of lossy
-second-harmonic terminations on the voltage waveform, output power, and
-efficiency of power amplifiers (PAs) operated in the class-J mode. To this end,
-the conventional (reactive) class-J mode is extended to a resistive-reactive
-class-J mode with complex fundamental and second-harmonic load impedances.
-The theory is experimentally validated by performing on-wafer active load-pull
-measurements on an AlGaN/GaN HEMT power device with 0.25\boldum gate length and
-a total gate periphery of 6$\times$200\boldum. The measured waveforms are
-de-embedded to the internal current-generator of the device, where they exhibit
-the theoretically predicted behavior.}
+A novel architecture for a digital-to-analog converter is investigated which improves the signal-to-noise ratio of conventional converter concepts.
+The presented concept has resulted in an arbitrary waveform generator which is capable to provide output powers of several watts.
+Further the high speed HEMT (high electron mobility transistor) technology have made it possible to cover a baseband frequency from DC to 5 GHz, which simulations have confirmed.
+A highly integrated digital driver circuit in GaN technology has made it possible to process a one chip solution for D/A conversion plus its signal amplifying.
+The presented demonstrator has yielded baseband frequencies in the range of several hundred MHz.
+The measurement results have verified the concept resulting in a synthesized triangular signal controlled by a 200 Mbps input control bitstream.
+The ability to steer a defined set of currents allows to synthesize an arbitrary waveform as the measurement results suggested.
+%brandnew concept and integration of a push pull stage for high power applications.
+%novel circuit design regarding concept.
+%intelligent assembly for signal lines, also thermal transfer is improved considered.
+%very clever measurement strategies.
+%since input control strategy is not the easiest, input buffer not available.
+%signal generator + preamp + bias tee (wideband since digital signals).
+%output measurement results - different signal synthesis.
+%DIGITAL HIGH SPEED DRIVER FOR GAN POWER APPLICATION.
+%FIRST EVER BUILT GAN DEMONSTRATOR FOR THE CONCEPT OF RP.\\%%
 %
 \end{abstract}
 %
@@ -155,7 +150,8 @@ the theoretically predicted behavior.}
 %
 \section{Introduction}
 \label{sec:introduction}
-{\itshape \IEEEPARstart{A}{part} from output power and efficiency, research increasingly
+\IEEEPARstart{T}{he} immense demand on high data rates forces researchers to investigate new technologies to improve the data rates of conventional concepts.
+ {\itshape from output power and efficiency, research increasingly
 focuses on bandwidth as an additional critical parameter of power amplifiers
 (PAs) for wireless systems. This results from the higher data rates of current
 systems and from the trend towards frequency agility or multi-band operation.
@@ -164,7 +160,7 @@ Conventional high-efficiency PA modes such as class-B, class-F, or inverse
 class-F are not suitable for wideband PA realizations because they require
 resonant harmonic loads (open or short circuits). This restriction is overcome
 by continuous PA modes such as class-J crippscontinuity2009,
-continuous class-F
+continuous class-F2
 citecarrubbacontinuous2010,
 or continuous inverse class-Fcitecarrubbaexploring2011, friesickemode2011.
 %
@@ -282,13 +278,14 @@ This technology is capable to provide high power at high switching frequencies, 
 \section{Implementation and assembly of a demonstrator}
 \label{sec:assembly}
 % -----------------------------------------------------------------------------
-To the best of the author's knowledge, the first ever built demonstrator is presented to proof the investigated concept.
-In order of limited measurement equipment the demonstrator is built with four inputs which corresponds to a two bit resolution.
+To the best of the author's knowledge, the first ever built demonstrator in GaN technology is presented.
+To keep the measurement complexity small, the built DAC got two bit resolution which is fine to proof the concept.
+%In order of limited measurement equipment the demonstrator is built with four inputs which corresponds to a two bit resolution.
 %The first ever built demonstrator to proof the concept of the Riemann Pump is presented in the following subsection.
-For the digital switching of the power transistors a monolithic microwave integrated circuit (MMIC) is used which has already implemented a proper driver circuit and power transistor.
-The MMICs are designed and fabricated in the \SI{0.25}{\micro\meter} AlGaN/GaN HEMT technology by Fraunhofer IAF and are of assistance in this realisation of a Riemann Pump, while the conventional application is in a Class-S amplifier (cite Stephan Maroldt).
-Figure \ref{fig:assembled_demonstrator} (a) illustrates the schematic where the grey painted area show a single MMIC.
-In Fig. \ref{fig:assembled_demonstrator}(b) the layout of the realised demonstrator is illustrated.
+For the digital switching of the GaN power transistors a monolithic microwave integrated circuit (MMIC) is used which has already implemented a proper driver circuit for the power transistors.
+The MMICs are designed and fabricated in the \SI{0.25}{\micro\meter} AlGaN/GaN HEMT technology by Fraunhofer IAF and are of assistance in this realisation of a Riemann Pump, while the conventional application is in a Class-S amplifier \cite{MaroldtDriverConcept}.
+Figure \ref{fig:assembled_demonstrator} (a) illustrates the schematic where the grey painted areas represent a single MMIC.
+In Fig. \ref{fig:assembled_demonstrator}(b) the layout of the realised demonstrator is shown.
 %
 % -----------------------------------------------------------------------------
 \begin{figure}[htb]
@@ -302,22 +299,24 @@ In Fig. \ref{fig:assembled_demonstrator}(b) the layout of the realised demonstra
 \end{figure}
 % -----------------------------------------------------------------------------
 %
-The green shapes represent MIM capacitors for filtering purpose and the black the used MMICs.
+The green shapes represent MIM capacitors for filtering purpose and the black ones the used MMICs.
 In order to reduce the impact of phase delays of the signal the input and output lines are of the same length, as well as the bond wires.
 %A critical point/ disadvantage of the used MMICs is that their source potential is led to the backside metallisation to ensure proper heat transfer, while the source potential is on ground.
 %The problem in this approach is to drive the power transistor to the upper power rail while the source potential is on the output potential of the ic.
-As the used MMICs were processed with backside metallisation and hence the power transistors source potential is grounded, it was necessary to isolate two of the chips.
-To ensure that the pushing transistors source potential is connected to the output line of the DAC they were bonded onto an isolated pad to the substrate.
-The trade-off which comes with this solution is that the heat transfer is not optimal.\\
+The power transistors source potential of the used MMICs got a via to the backside metallisation of the MMIC, hence it was necessary to isolate this contact for the high side (pushing) transistors.
+%were processed with backside metallisation and hence the power transistors source potential is grounded, it was necessary to isolate two of the chips.
+This isolation is realized by an isolated pad on the substrate.
+%To ensure that the pushing transistors source potential is connected to the output line of the DAC they were bonded onto an isolated pad to the substrate.
+The trade-off which comes with this solution is the reduced heat transfer.\\
 %In fact of this the heat transfer is not optimal since the transistors generate several watts.
 %Also two different layouts are designed to compare the property of heat transfer.
 % Each MMIC used in this work consists of the elements shown in Fig \ref{fig:schematic_multibit_rp} for the low side, which include the driver circuit of two transistors and the resistor plus the output power transistor.
 %In fact of the assembly, one version used a isolated pad in fact of the undesired backside metallisation of the chip.
 %This is undesired since the output of the high side stage is the source pin.
 %For the low side the source pin is grounded and the output is the drain of the power amplifier.
-Nevertheless, to the best of the author's knowledge, the first ever realized Riemann Pump in GaN technology were assembled and tested.
+Nevertheless the first Riemann Pump in GaN technology were assembled and tested.
 Figure \ref{fig:photo_chipconnection_demonstrator}(a) shows a photograph of the bonded chip connection according to the layout in Fig. \ref{fig:assembled_demonstrator}(b).
-This chip connection marked with the red shape is illustrated in (b), the photograph of the whole assembled demonstrator.
+This chip connection marked with the red shape is illustrated in the photograph of Fig. \ref{fig:photo_chipconnection_demonstrator}(b).
 % -----------------------------------------------------------------------------
 \begin{figure}[htb]
   \centering
@@ -339,12 +338,12 @@ The demonstrator is of the size 50x60 mm, has four input and one output line and
 %The theoretical waveforms are experimentally verified using the demonstrator which is assembled with four MMICs as shown in Figure \ref{fig:assembled_demonstrator} (b). 
 % and consists of an input driver stage with a power transistor.
 To proof that the built demonstrator can convert digital input streams into an analog output signal the time domain measurement was performed.
-For this a special control and measurement strategy was applied.
-Four input signals have to be applied to test the two bit resolution of the device. Two differential input signals, hence four signals in total, were applied by an arbitrary waveform generator (Keysight M8195A) to represent a digital data stream. 
+A custom control and measurement strategy was applied to get decent results.
+Two differential input signals, hence four signals in total, were applied by an arbitrary waveform generator (Keysight M8195A) to represent the digital data stream. 
 These signals had to be amplified by a broadband pre-amplifier and shifted in the DC offset with bias tees to ensure proper switching of the transistors at the input.
 %
 %\subsection{Time domain measurement with resistive load}
-First of all a short stability check ensured that the device under test does not oscillate.
+First of all a short stability check was performed to ensure that the DUT does not oscillate.
 Further the switches are controlled with an synchronous signal, as seen in Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(a), leading to a push-pull measurement with resistive load.
 Hence the output signal switches between Vdd and GND as can be seen in Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(b).
 %
@@ -362,18 +361,16 @@ Hence the output signal switches between Vdd and GND as can be seen in Figure \r
 %
 Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(a) illustrates one differential digital input stream generated by the AWG for a data rate of 200 Mbps in the time domain.
 Controlling the device under test, loaded with a resistor, with this signal led to the output signal in Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(b).
-The black dashed line represents the theoretical output of an ideal switch while the grey continuous line shows the measured output signal for the push-pull concept of the DUT.
+The black dashed line represents the theoretical output of an ideal switch while the grey continuous line shows the measured output signalof the DUT.
 %In Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(b) the output voltage of the DUT with a resistive load is shown.
 %Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper} (a) shows the differential input control signal with an amplitude (peak-to-peak voltage) of 0.7V and a frequency of 100MHz in the time domain.
-
 %\subsection{Time domain measurement with capacitive load}
-To proof the possibility to synthesize different output signals the resistive load is replaced by a capacitive load.
+To show the feasibility to synthesize different output signals the resistive load is replaced by a capacitive load.
 %After the successful measurement of the push-pull stage, the feasibility of generating different slopes are measured.
 Synchronous on-switching of both pushing transistors while the pulling transistors were closed led to the expected results as already shown with the resistive load.
-Here the capacitor is charged with the maximum available current, hence the biggest slope is chosen, with respect to the mentioned concept.
+Here the capacitor is charged with the maximum available current, hence the biggest slope is chosen.
 In order to select a smaller slope both pushing as well as both pulling transistors had to be switched asynchronous.
 The smaller slope $1 i_0$ is illustrated in Figure \ref{fig:meas_Output_CLoad_100M_1io_3io}(a) while the bigger slope $3 i_0$ is shown in (b).
-
 %
 % -----------------------------------------------------------------------------
 \begin{figure}[htb]
@@ -398,26 +395,15 @@ The notation of both figures are the same, the solid black line represent the me
 \section{Conclusion}
 \label{sec:conclusion}
 % ------------------------------------------------------------------------------
-{\itshape
-This letter presents a theory which considers second-harmonic losses in the
-class-J PA mode. The theory predicts internal voltage waveforms, expressions
-for power and efficiency and derives optimum fundamental impedances depending
-on the second-harmonic loss. Load-pull measurements of a
-6$\times$\SI{200}{\micro\meter} GaN HEMT device confirm the predicted waveforms
-and validate the theoretical power and efficiency results. The theory may be
-used to determine efficiency--bandwidth tradeoffs in wideband class-J PAs with
-lossy second-harmonic loads.
+A first prototype of a Riemann Pump in GaN technology has been presented to validate the concept of this current steering topology.
+The measurement results have shown the feasibility of synthesizing arbitrary waveforms at 100 MHz and the potential of the chosen technology promises to cover even higher frequencies.
 
-}
 % ------------------------------------------------------------------------------
 % Appendices
 % ------------------------------------------------------------------------------
 
 \section*{Acknowledgement}
-{\itshape
-The authors would like to thank Thomas Maier at Fraunhofer IAF for carrying out
-the load-pull measurements.
-}
+The authors would like to thank Dirk Meder at Fraunhofer IAF for the assistance with the assembly process.
 
 % ------------------------------------------------------------------------------
 % References
