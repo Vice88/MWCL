@@ -70,8 +70,8 @@
 
 \begin{document}
 
-\title{Investigation, Analysis and Evaluation of a Riemann Pump in GaN Technology for 5G Mobile Communication}
-
+\title{Investigation, Analysis and Evaluation of a Riemann Pump in GaN Technology}
+% if 5G is mentioned, it should be explained.
 \author{%
 	Markus~Wei\ss{},
     Christian~Friesicke,
@@ -121,12 +121,12 @@
 
 \begin{abstract}
 %
-A novel architecture for a digital-to-analog converter is investigated which improves the signal-to-noise ratio of conventional converter concepts.
+A novel architecture \footnote{description of the difference to standard concepts. differential pulse code modulation.} for a digital-to-analog converter is investigated which improves the signal-to-noise ratio of conventional converter concepts.
 The presented concept has resulted in an arbitrary waveform generator which is capable to provide output powers of several watts.
 Further the high speed HEMT (high electron mobility transistor) technology have made it possible to cover a baseband frequency from DC to 5 GHz, which simulations have confirmed.
 A highly integrated digital driver circuit in GaN technology has made it possible to process a one chip solution for D/A conversion plus its signal amplifying.
-The presented demonstrator has yielded baseband frequencies in the range of several hundred MHz.
-The measurement results have verified the concept resulting in a synthesized triangular signal controlled by a 200 Mbps input control bitstream.
+%The presented demonstrator has yielded baseband frequencies in the range of several hundred MHz.
+The measurement results have yielded baseband frequencies in the range of several hundred MHz and verified the concept resulting in a synthesized triangular signal controlled by a 200 Mbps input control bitstream.
 The ability to steer a defined set of currents allows to synthesize an arbitrary waveform as the measurement results suggested.
 %brandnew concept and integration of a push pull stage for high power applications.
 %novel circuit design regarding concept.
@@ -150,42 +150,18 @@ The ability to steer a defined set of currents allows to synthesize an arbitrary
 %
 \section{Introduction}
 \label{sec:introduction}
-\IEEEPARstart{T}{he} immense demand on high data rates forces researchers to investigate new technologies to improve the data rates of conventional concepts.
- {\itshape from output power and efficiency, research increasingly
-focuses on bandwidth as an additional critical parameter of power amplifiers
-(PAs) for wireless systems. This results from the higher data rates of current
-systems and from the trend towards frequency agility or multi-band operation.
-%
-Conventional high-efficiency PA modes such as class-B, class-F, or inverse
-class-F are not suitable for wideband PA realizations because they require
-resonant harmonic loads (open or short circuits). This restriction is overcome
-by continuous PA modes such as class-J crippscontinuity2009,
-continuous class-F2
-citecarrubbacontinuous2010,
-or continuous inverse class-Fcitecarrubbaexploring2011, friesickemode2011.
-%
-The class-J mode is based on the class-AB/B mode but adds a reactance to the
-fundamental load, which is compensated by a second-harmonic reactance with
-opposite sign. It maintains the same efficiency and power as class-AB/B,
-however, at the expense of higher peak voltages. Class-J (and the other
-continuous modes) rely on purely reactive harmonic loads. Therefore, the
-fundamental band (complex loads) can not overlap with the second-harmonic band
-(pure reactances). This separation limits the theoretically achievable
-bandwidth to 70.7\%. In practice, the transition region between the bands
-further reduces the bandwidth. If this region is used, wider bandwidths can be
-achieved but lossy harmonic loads must be accepted
-cite{preisdesign2014,anderssondecade2012}.
-%
-Theories that include harmonic losses exist for continuous class-F
-cite{carrubbaextension2011}
-and continuous inverse class-F
-cite{carrubbacontinuous2012}.
-This letter presents a theory that considers second-harmonic losses in the
-class-J PA mode. The theory is described in \cref{sec:theory}, where the
-effects of losses on voltage waveforms, power, and efficiency are calculated,
-and the relation between optimum fundamental load and complex second-harmonic
-load is derived. \cref{sec:experiment} validates the theory by presenting
-on-wafer active harmonic load-pull measurements of a GaN HEMT device.}
+\IEEEPARstart{T}{he} immense demand on high data rates leads researchers to investigate new technologies to improve conventional concepts.
+One concept which improves this performance is the Riemann Pump \cite{VeyracRivetDevalEtAl2014}.
+The Riemann Pump is able to generate arbitrary signal waveforms to synthesize e.g. any modulated rf signal.
+The possibility to generate any modulated RF signal leads to a much higher data rate as with conventional concepts of RF-FE.
+With the co-integration of the digital-to-analog converter with a power amplifier in GaN technology, further external RF front end components are not necessary.
+The process is done within one step than to process several explicit components and connect them.
+The technology of high electron mobility transistors makes it possible to synthesize output signal for the baseband up to at least 5 GHz.
+Synthesizing arbitrary signals with a bandwidth of 5 GHz enables to cover the common mobile communication standards.
+Due to the fact that the sum of several signals of the common mobile communication standard can be generated, a concurrent transmitter is built which increases the data rate up to 10 Gbps.
+This is the idea of software defined radio, where it is to bring the digital domain as close as possible to the analog.
+For this idea a suitable DAC is necessary, which is presented later.
+
 %
 %
 \section{Concept of the Riemann Pump circuit}
