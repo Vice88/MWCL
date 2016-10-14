@@ -123,8 +123,8 @@
 %
 A novel architecture for a digital-to-analog converter is investigated which improves the signal-to-noise ratio of conventional converter concepts.
 The presented concept has resulted in an arbitrary waveform generator which is capable to provide several watts of output power.
-Further the HEMT (high electron mobility transistor) technology have made it possible to cover a baseband frequency from DC to 5 GHz, which simulations have confirmed.
-A highly integrated digital driver circuit in GaN (gallium nitride) technology has made it possible to process a one chip solution for the DAC with a power amplifier.
+Further the HEMT (high electron mobility transistor) technology have made it possible to cover a baseband frequency from DC to 6 GHz while ensuring an oversampling ratio of the signal of 5.
+An integrated digital driver circuit makes it possible to process a highly integrated one chip solution for the DAC co-integrated with a power amplifier in GaN (gallium nitride) technology.
 %The presented demonstrator has yielded baseband frequencies in the range of several hundred MHz.
 The ability to steer a current out of a defined set of slopes allows to synthesize an arbitrary waveform.
 Measurement results have yielded a baseband frequency of 100 MHz for an input control data rate of 200 Mbps.
@@ -151,38 +151,39 @@ The triangular signal proved the feasibility to generate arbitrary signal wavefo
 %
 \section{Introduction}
 \label{sec:introduction}
-\IEEEPARstart{T}{he} immense demand on high data rates leads researchers to investigate new technologies to improve conventional concepts.
+\IEEEPARstart{T}{he} immense demand on high data rates in mobile communication leads researchers to investigate new technologies to improve the conventional concepts.
 One concept which improves the performance is the Riemann Pump \cite{VeyracRivetDevalEtAl2014}.
 The aim to develop a Riemann Pump in GaN technology is to generate a high power modulated microwave signal with a baseband bandwidth of 6 GHz suitable for the next generation of mobile communication.
 The feasibility to cover the whole frequency range from DC to 6 GHz enables this architecture to operate with all common mobile communication standards.
-Due to the fact that the sum of several signals of the common mobile communication standard can be generated, a concurrent transmitter is built which increases the data rate up to 10 Gbps.
-The possibility to generate any modulated RF signal leads to a much higher data rate as with conventional concepts of RF-FE.
-This idea is based on software defined radios.
-In fact of the summation of different signals enables this technique to concurrent transmit different signals and hence increase the data rate.
+Due to the fact that the sum of several signals of the common mobile communication standard can be generated, a concurrent transmitter is built which will increases the data rate.
+%The possibility to generate any modulated RF signal leads to a much higher data rate as with conventional concepts of RF-FE.
+%This idea is based on software defined radios.
+%In fact of the summation of different signals enables this technique to concurrent transmit different signals and hence increase the data rate.
 The advantage of GaN is to switch high powers with high frequencies as conventional CMOS switches are limited in power.
 As the power consumption of GaN HEMTs exceeds the limits for mobile devices the presented architecture is suitable for base station transmitters.\\
 This paper presents the first ever built demonstrator in GaN technology with measurement results which verified the concept of a multi bit charge pump.
 %converting a digital bitstream into an analog signal waveform.
-A challenging task was to ensure the proper switching of a push pull stage with depletion mode n-transistors, as there are no complementary transistors available.
-A proper digital driver circuit is investigated to allow a proper switching of a depletion mode n-HEMT which source potential is not fixed to ground potential rather changing the potential.
+A challenging task was to ensure the proper switching of a push pull stage only consisting of depletion mode n-doped transistors.
+A proper digital driver circuit is investigated to allow a proper switching of the HEMT which source potential is not fixed to ground potential rather changing the potential.
 %This realized push-pull configuration in GaN technology is the first ever realized, to the best of the authors knowledge.
 %The Riemann Pump is able to generate arbitrary signal waveforms to synthesize any modulated rf signal.
 %With the co-integration of the digital-to-analog converter with a power amplifier in GaN technology, further external RF front end components are not necessary.
-The GaN HEMTS are able to switch with a frequency of 30 GHz which results in a synthesized baseband signal frequency of 6 GHz while ensuring an oversampling of 5.
-Common concepts and hardware topology as CMOS are limited in switching frequency or in the power.
+As the GaN HEMTs are able to switch with a frequency of 30 GHz this results in a synthesized baseband signal frequency of 6 GHz while ensuring an oversampling of 5.
+Further the SNR of this new architecture is improved in comparison to conventional PCM converter.
+%Common concepts and hardware topology as CMOS are limited in switching frequency or in the power.
 %The technology of high electron mobility transistors in GaN enables a switching frequency of 30 GHz which can synthesize signals of 6 GHz baseband frequency with an oversampling of 5.
 %Synthesizing arbitrary signals with a bandwidth of 5 GHz enables to cover the common mobile communication standards.
 %This is the idea of software defined radio, where it is to bring the digital domain as close as possible to the analog.
-An oversampled PCM converter improves the SNR by 5 to 7 dB for every one bit increase of resolution, .
-Every increase in the oversampling ratio improves the SNR by 3 dB for the conventional PCM converter.
-However the Riemann conversion improves the SNR by 5 to 10 dB for every bit increase of resoultion but also increase the SNR by 9 dB for every doubling of the oversampling ratio.
-Equation \ref{eq:snr_riemannconversion} illustrates the mathematical approximation for the SNR of the Riemann conversion, for further details and the derivation see \cite{VeyracRivetDevalEtAl2016}.
-
+An oversampled PCM converter improves the SNR by 5 to 7 dB for every one bit increase of resolution while the Riemann conversion improves it by 5 to 10 dB.
+Every doubling of the oversampling ratio improves the SNR of a PCM converter by 3 dB while the Riemann conversion improves it by 9dB.
+The mathematical approximation which is the basis of the Riemman Pump is given in Equation \ref{eq:snr_riemannconversion}.
+For further details on this approximation and the derivation see \cite{VeyracRivetDevalEtAl2016}.
+%
 \begin{align}
   SNR_{dB} \approx 6,02N + 9,03r - 7,78 + 10log(1- \frac{1}{2^{N-1}} + \frac{1}{2^{2N}})
     \label{eq:snr_riemannconversion}
 \end{align}
-
+%
 The factor N is for the number of bits used for the resolution, while r is the exponent of the oversampling ratio which is defined as $OSR = 2^r$.
 % $SNR = 6,02N + 3,01r + 1,76$ while the Riemann conversion yields $SNR = 6,02N + 9,03r - 7,78 + 10log(1- \frac{1}{2^{N-1}} + \frac{1}{2^{2N}})$ \cite{VeyracRivetDevalEtAl2016}.
 
