@@ -149,7 +149,7 @@ The utilization of \gls{gan} enables to design a one-chip solution of a \gls{rfd
 %An integrated digital driver circuit makes it possible to process a highly integrated one chip solution for the DAC co-integrated with a power amplifier in GaN (gallium nitride) technology.
 %The presented demonstrator has yielded baseband frequencies in the range of several hundred MHz.
 The Riemann Pump, which is controlled with a digital bit-stream, is based on the current steering topology and provides the possibility to synthesize arbitrary waveforms.
-A two-bit \gls{rfdac} designed with multiple \glspl{mmic} proofs the feasibility to generate arbitrary waveforms.
+A two-bit \gls{rfdac} designed with multiple \glspl{mmic} proves the feasibility to generate arbitrary waveforms.
 Measurement results yield triangular signals with a baseband frequency of 100 MHz for an input-control data rate of 200 Mbps.
 
 %brandnew concept and integration of a push pull stage for high power applications.
@@ -175,22 +175,22 @@ Measurement results yield triangular signals with a baseband frequency of 100 MH
 \section{Introduction}
 \label{sec:introduction}
 \IEEEPARstart{T}{he} immense demand for high data rates in mobile communication leads researchers to investigate new architectures to improve the conventional concepts.
-One concept that improves the performance is the Riemann Pump \cite{VeyracRivetDevalEtAl2014}.
-The aim to develop a Riemann Pump in \gls{gan} technology is to generate a high power modulated microwave signal, which is suitable for the next generation of mobile communication.
+One concept that improves the performance is the Riemann Pump \cite{VeyracRivetDevalEtAl2014}, \cite{DevalRivetVeyrac2015}.
+The aim to develop a Riemann Pump in \gls{gan} technology is to generate a high power modulated microwave signal that is suitable for the next generation of mobile communication.
 The possibility to cover a frequency range from DC to 6 GHz enables this architecture to operate with all common mobile communication standards.
 %Due to the fact that the sum of several signals of the common mobile communication standard can be generated, a concurrent transmitter is built which will increases the data rate.
 %The possibility to generate any modulated RF signal leads to a much higher data rate as with conventional concepts of RF-FE.
 %This idea is based on software defined radios.
 %In fact of the summation of different signals enables this technique to concurrent transmit different signals and hence increase the data rate.
-The advantage of \gls{gan} is to switch high power at high frequencies as conventional CMOS switches are limited in power.
-As the power consumption of \gls{gan} \glspl{hemt} exceeds the limits for mobile devices the presented architecture is suitable for base station transmitters.\\
+The advantage of \gls{gan} is to switch high power at high frequencies compared to conventional CMOS switches, which are limited in power.
+As the power consumption of \gls{gan} \glspl{hemt} exceeds the limit for mobile devices, the presented architecture is suitable for base station transmitters.\\
 The presented concept of the Riemann Pump improves the \gls{snr} compared to conventional \gls{pcm} converters.
 %Common concepts and hardware topology as CMOS are limited in switching frequency or in the power.
 %The technology of high electron mobility transistors in GaN enables a switching frequency of 30 GHz which can synthesize signals of 6 GHz baseband frequency with an oversampling of 5.
 %Synthesizing arbitrary signals with a bandwidth of 5 GHz enables to cover the common mobile communication standards.
 %This is the idea of software defined radio, where it is to bring the digital domain as close as possible to the analog.
-A \gls{pcm} converter improves the \gls{snr} by 5 to 7 dB for every one-bit increase of resolution while the Riemann conversion improves it by 5 to 10 dB \cite{VeyracRivetDevalEtAl2016}.
-Every doubling of the \gls{osr}, which is defined as $\text{OSR} = \frac{f_{\text{sampling}}} {2 f_{\text{signal,max}}}$, improves the \gls{snr} of a \gls{pcm} converter by 3 dB while the Riemann conversion improves it by 9 dB.
+A \gls{pcm} converter improves the \gls{snr} by 5 to 7 dB for every one-bit increase of resolution, while the Riemann conversion improves it by 5 to 10 dB \cite{VeyracRivetDevalEtAl2016}.
+Every doubling of the \gls{osr}, which is defined as $\text{OSR} = \frac{f_{\text{sampling}}} {2 f_{\text{signal,max}}}$, improves the \gls{snr} of a \gls{pcm} converter by 3 dB, while the Riemann conversion improves it by 9 dB.
 The mathematical approximation for the \gls{snr} of the Riemann Pump is given in Equation \ref{eq:snr_riemannconversion}.
 For further details and the derivation see \cite{VeyracRivetDevalEtAl2016}.
 %
@@ -204,11 +204,12 @@ The factor $N$ represents the number of bits used for the resolution, while $r$ 
 % $SNR = 6,02N + 3,01r + 1,76$ while the Riemann conversion yields $SNR = 6,02N + 9,03r - 7,78 + 10log(1- \frac{1}{2^{N-1}} + \frac{1}{2^{2N}})$ \cite{VeyracRivetDevalEtAl2016}.
 \\
 This paper presents the first realization of a Riemann Pump in \gls{gan} technology.
-The new concept of the Riemann Pump shows the feasibility to improve the data rate.
+The new concept of the Riemann Pump shows the potential to improve the data rate for base station transmitters.
 A circuit is devised and designed in Chapter \ref{sec:theory} based on the presented idea.
 Chapter \ref{sec:assembly} covers the implementation and assembly of a first Riemann Pump demonstrator.
-In Chapter \ref{sec:experiment} measurement results verify the feasibility of the concept by the generation of a triangular signal, which is representative for any signal waveform.
-Chapter \ref{sec:conclusion} summarizes the paper and give a short outlook for future work.
+In Chapter \ref{sec:experiment} measurement results verify the feasibility of the concept by the generation of a triangular signal, which is representative for an arbitrary signal waveform.
+%At the end the paper is concluded  
+Chapter \ref{sec:conclusion} summarizes the results of this paper.
 %A challenging task was to ensure the proper switching of a push-pull stage only consisting of depletion-mode n-doped transistors.
 %A proper digital driver circuit is investigated to allow a proper switching of the HEMT which source potential is not fixed to ground potential rather changing the potential.
 %This realized push-pull configuration in GaN technology is the first ever realized, to the best of the authors knowledge.
@@ -304,7 +305,7 @@ To the best of the author's knowledge, the first ever built demonstrator in \gls
 To ensure a feasible measurement setup, the \gls{rfdac} is realized with a two-bit resolution which is sufficient to prove the concept.
 %In order of limited measurement equipment the demonstrator is built with four inputs which corresponds to a two bit resolution.
 %The first ever built demonstrator to proof the concept of the Riemann Pump is presented in the following subsection.
-For the digital switching of the \gls{gan} power transistors a \gls{mmic} is used which has already implemented a proper driver circuit.
+For the digital switching of the \gls{gan} power transistors a \gls{mmic} is used which has implemented a proper driver circuit \cite{MaroldtBruecknerQuayEtAl2014}.
 These \glspl{mmic} are designed and fabricated in the \SI{0.25}{\micro\meter} AlGaN/GaN HEMT technology by Fraunhofer IAF \cite{MaroldtDriverConcept}.
 Figure \ref{fig:assembled_demonstrator} (a) illustrates the schematic where the grey painted areas represent a single \gls{mmic}.
 In Fig. \ref{fig:assembled_demonstrator}(b) the layout of the realized demonstrator is shown.
@@ -361,7 +362,7 @@ A custom control and measurement setup was applied to ensure excitation of the \
 Four input signals are applied by an \gls{awg} (Keysight M8195A) to represent the digital data stream. 
 These signals had to be amplified by a broadband pre-amplifier and shifted in the DC offset with bias tees to ensure proper switching of the transistors Qb1, Qb2, Qb3 and Qb4 at the input.
 First of all, a stability analysis is performed to ensure that the \gls{dut} does not oscillate.
-Further, both high-side transistors (Q1, Q3) are controlled with an in-phase signal illustrated in Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(a) (grey) , while the inverse signal (black) is applied to both low-side transistors (Q2, Q4).
+Further, both high-side transistors (Q1, Q3) are controlled with an in-phase signal illustrated in Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(a) (grey), while the inverse signal (black) is applied to both low-side transistors (Q2, Q4).
 This differential digital input stream is generated by the \gls{awg} for a data rate of 200 Mbps in the time-domain.
 The \gls{dut} is loaded with a $50 \Omega$ resistor and is controlled by this input signal, which leads to the output signal shown in Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper} (b).
 %
@@ -412,7 +413,8 @@ The notation of both figures is the same, the solid black line represents the me
 % ------------------------------------------------------------------------------
 A first prototype of a Riemann Pump in \gls{gan} technology is presented to validate the concept of this current steering topology.
 The measurement results show the feasibility of synthesizing arbitrary waveforms at 100 MHz.
-The potential of the chosen technology promises to cover even higher frequencies to satisfy the condition for the new mobile communication standards.
+The potential of the chosen technology promises to cover even higher frequencies, the concept integrated in a \gls{mmic}, to satisfy the condition for the new mobile communication standards.
+%The next step is to integrate the presented hybrid assembly into a \gls{mmic}.
 
 % ------------------------------------------------------------------------------
 % Appendices
