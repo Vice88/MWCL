@@ -89,6 +89,10 @@
 \newglossaryentry{osr}{name={OSR},description={oversampling ratio},first={oversampling ratio (OSR)}}
 
 \newglossaryentry{rffe}{name={RFFE},description={radio-frequency front-end},first={radio-frequency front-end (RFFE)}}
+
+\newglossaryentry{dut}{name={DUT},description={device under test},first={device under test (DUT)}}
+
+\newglossaryentry{awg}{name={AWG},description={arbitrary waveform generator},first={arbitrary waveform generator (AWG)}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -302,7 +306,7 @@ To ensure a feasible measurement setup, the \gls{rfdac} is realized with a two-b
 %In order of limited measurement equipment the demonstrator is built with four inputs which corresponds to a two bit resolution.
 %The first ever built demonstrator to proof the concept of the Riemann Pump is presented in the following subsection.
 For the digital switching of the \gls{gan} power transistors a \gls{mmic} is used which has already implemented a proper driver circuit.
-These \glspl{mmic} are designed and fabricated in the \SI{0.25}{\micro\meter} AlGaN/GaN HEMT technology by Fraunhofer IAF \cite{MaroldtDriverConcept} and are of assistance in this realisation of a Riemann Pump.
+These \glspl{mmic} are designed and fabricated in the \SI{0.25}{\micro\meter} AlGaN/GaN HEMT technology by Fraunhofer IAF \cite{MaroldtDriverConcept}.
 Figure \ref{fig:assembled_demonstrator} (a) illustrates the schematic where the grey painted areas represent a single \gls{mmic}.
 In Fig. \ref{fig:assembled_demonstrator}(b) the layout of the realized demonstrator is shown.
 %
@@ -318,9 +322,9 @@ In Fig. \ref{fig:assembled_demonstrator}(b) the layout of the realized demonstra
 \end{figure}
 % -----------------------------------------------------------------------------
 %
-The green rectangles represent off-chip capacitors, and the black rectangles are the used \glspl{mmic}.
-Each \gls{mmic}, consisting of the grey highlighted circuit, have got a via to the backside at the power transistors source potential.
-In fact of this via and the backside metallization it is necessary to isolate the \glspl{mmic} for the high-side transistors.
+The green rectangles represent off-chip bypass capacitors, and the black rectangles are the used \glspl{mmic}.
+Each \gls{mmic}, consisting of the grey highlighted circuit in Figure \ref{fig:assembled_demonstrator} (a), have got a via to the backside at the power transistors source potential.
+In fact of this via and the backside metallization it is necessary to isolate the \glspl{mmic} for the high-side transistors Q1 and Q3.
 This isolation is realized by an isolated pad on the substrate, which induces a critical heat transfer.
 In order to reduce the impact of phase delays of the signal the input and output lines as well as the bond wires are of the same length.
 \\
@@ -330,38 +334,37 @@ In order to reduce the impact of phase delays of the signal the input and output
 %In fact of the assembly, one version used a isolated pad in fact of the undesired backside metallisation of the chip.
 %This is undesired since the output of the high side stage is the source pin.
 %For the low side the source pin is grounded and the output is the drain of the power amplifier.
-The first Riemann Pump in GaN technology is assembled and tested.
-Figure \ref{fig:photo_chipconnection_demonstrator}(a) shows a photograph of the bonded chip connection according to the layout in Fig. \ref{fig:assembled_demonstrator}(b).
-This chip connection marked with the red shape is illustrated in the photograph of Fig. \ref{fig:photo_chipconnection_demonstrator}(b).
+The first Riemann Pump in GaN technology is shown in Figure \ref{fig:photo_chipconnection_demonstrator}.
+A close-up of assembled \glspl{mmic} is shown in Figure \ref{fig:photo_chipconnection_demonstrator} (a) according to the layout in Figure \ref{fig:assembled_demonstrator}(b).
+This close-up is highlighted in the photography of the demonstrator in Figure \ref{fig:photo_chipconnection_demonstrator} (b).
 % -----------------------------------------------------------------------------
 \begin{figure}[htb]
   \centering
 	\begin{scriptsize}
   	\def\svgwidth{\columnwidth}
  	\input{graphics/PhotoChipConnect_Demonstrator.pdf_tex} 
-  	\caption{(a) Chipconnection Photo, (b) realized demonstrator.}
+  	\caption{(a) Close-up of assembled \glspl{mmic}, (b) realized demonstrator.}
   	\label{fig:photo_chipconnection_demonstrator}
 	\end{scriptsize}
 \end{figure}
 % -----------------------------------------------------------------------------
-The demonstrator is of the size 50x60 mm, has four input and one output line and in addition to the DC supply voltage connectors a decoupling network.
+The demonstrator is of the size 50x60 $\text{mm}^2$, has four digital input and one analog output line and DC supply connectors with decoupling network.
+The analog output is at the top middle while the other four signal paths are the digital inputs.
 %
 % ------------------------------------------------------------------------------
-\section{Time domain measurement of synthesized output signal compared to simulation}
+\section{Time-domain measurement of synthesized output signal}
 \label{sec:experiment}
 % ------------------------------------------------------------------------------
 
 %The theoretical waveforms are experimentally verified using the demonstrator which is assembled with four MMICs as shown in Figure \ref{fig:assembled_demonstrator} (b). 
-% and consists of an input driver stage with a power transistor.
-To proof that the built demonstrator can convert digital input streams into an analog output signal the time domain measurement was performed.
-A custom control and measurement strategy was applied to get decent results.
-Two differential input signals, hence four signals in total, were applied by an arbitrary waveform generator (Keysight M8195A) to represent the digital data stream. 
-These signals had to be amplified by a broadband pre-amplifier and shifted in the DC offset with bias tees to ensure proper switching of the transistors at the input.
-%
-%\subsection{Time domain measurement with resistive load}
-First of all a short stability check was performed to ensure that the DUT does not oscillate.
-Further the switches are controlled with an synchronous signal, as seen in Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(a), leading to a push-pull measurement with resistive load.
-Hence the output signal switches between Vdd and GND as can be seen in Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(b).
+To prove that the built demonstrator can convert digital input streams into an analog output signal, a time-domain measurement is performed.
+A custom control and measurement setup was applied to ensure excitation of the \gls{dut} with correct amplitude and phase.
+Four input signals are applied by an \gls{awg} (Keysight M8195A) to represent the digital data stream. 
+These signals had to be amplified by a broadband pre-amplifier and shifted in the DC offset with bias tees to ensure proper switching of the transistors Qb1, Qb2, Qb3 and Qb4 at the input.
+First of all, a stability analysis is performed to ensure that the \gls{dut} does not oscillate.
+Further, both high-side transistors (Q1, Q3) are controlled with an in-phase signal illustrated in Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(a) (grey) , while the inverse signal (black) is applied to both low-side transistors (Q2, Q4).
+This differential digital input stream is generated by the \gls{awg} for a data rate of 200 Mbps in the time-domain.
+The \gls{dut} is loaded with a $50 \Omega$ resistor and is controlled by this input signal, which leads to the output signal shown in Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper} (b).
 %
 % -----------------------------------------------------------------------------
 \begin{figure}[htb]
@@ -369,24 +372,21 @@ Hence the output signal switches between Vdd and GND as can be seen in Figure \r
 	\begin{scriptsize}
   	\def\svgwidth{\columnwidth}
  	\input{graphics/meas_Input_Output_RLoad_100M_SmallSize_Paper.pdf_tex} 
-  	\caption{(a) Differential input control signal and (b) corresponding output signal; (b.1) dashed theoretical signal, (b.2) measured signal.}
+  	\caption{(a) Differential input control signal and (b) corresponding output signal; theoretical signal (dashed), measured signal (solid).}
   	\label{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}
 	\end{scriptsize}
 \end{figure}
 % -----------------------------------------------------------------------------
 %
-Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(a) illustrates one differential digital input stream generated by the AWG for a data rate of 200 Mbps in the time domain.
-Controlling the device under test, loaded with a resistor, with this signal led to the output signal in Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(b).
-The black dashed line represents the theoretical output of an ideal switch while the grey continuous line shows the measured output signalof the DUT.
-%In Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(b) the output voltage of the DUT with a resistive load is shown.
-%Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper} (a) shows the differential input control signal with an amplitude (peak-to-peak voltage) of 0.7V and a frequency of 100MHz in the time domain.
-%\subsection{Time domain measurement with capacitive load}
-To show the feasibility to synthesize different output signals the resistive load is replaced by a capacitive load.
-%After the successful measurement of the push-pull stage, the feasibility of generating different slopes are measured.
-Synchronous on-switching of both pushing transistors while the pulling transistors were closed led to the expected results as already shown with the resistive load.
-Here the capacitor is charged with the maximum available current, hence the biggest slope is chosen.
-In order to select a smaller slope both pushing as well as both pulling transistors had to be switched asynchronous.
-The smaller slope $1 i_0$ is illustrated in Figure \ref{fig:meas_Output_CLoad_100M_1io_3io}(a) while the bigger slope $3 i_0$ is shown in (b).
+As expected for a push-pull measurement the output signal switches between Vdd (5V) and GND (0V).
+The dashed line represents the output of an ideal switch while the solid line shows the measured output signal of the \gls{dut}.
+To show the feasibility to synthesize different output signals it is necessary to generate different currents which are integrated at a capacitor, as mentioned in Chapter \ref{sec:theory}.
+Therefore the resistive load is replaced by a capacitive load, representing the capacitive input impedance characteristic of a \gls{pa}.
+In-phase switching of both high-side and low-side transistors led to the results shown in Figure \ref{fig:meas_Output_CLoad_100M_1io_3io} (b).
+Here the capacitor is charged with the maximum available current as both high-side transistors simultaneously drive current to the load, hence the biggest slope is chosen.
+Encoding the biggest slope with the bit-sequence "00" the corresponding most negative slope is "11" while "01" and "10" contribute to the smaller slopes in between.
+In order to select the slope $1 i_0$ both high-side as well as both low-side transistors are driven with anti-phase signals.
+The slope $1 i_0$ is illustrated in Figure \ref{fig:meas_Output_CLoad_100M_1io_3io}(a) while the bigger slope $3 i_0$ is shown in (b).
 %
 % -----------------------------------------------------------------------------
 \begin{figure}[htb]
@@ -394,7 +394,7 @@ The smaller slope $1 i_0$ is illustrated in Figure \ref{fig:meas_Output_CLoad_10
 	\begin{scriptsize}
   	\def\svgwidth{\columnwidth}
  	\input{graphics/meas_Output_CLoad_100M_1i0_3i0.pdf_tex} 
-  	\caption{Dashed line theoretical slope; solid black line measurement. Slope of (a) $\pm 1  i_0$ and (b) $\pm 3 i_0$.}
+  	\caption{ideal slope (dashed); measurement (solid). Slope of (a) $\pm 1  i_0$ and (b) $\pm 3 i_0$.}
   	\label{fig:meas_Output_CLoad_100M_1io_3io}
 	\end{scriptsize}
 \end{figure}
@@ -405,14 +405,15 @@ The smaller slope $1 i_0$ is illustrated in Figure \ref{fig:meas_Output_CLoad_10
 %% !! technical regarding -> 3i0 do not scale with 3 times 1i0 !
 %% !! corresponding simulation data !!
 
-The notation of both figures are the same, the solid black line represent the measured time domain signal for the frequency of 100 MHz, while the dashed line represent the theoretical signal waveform.
+The notation of both figures is the same, the solid black line represents the measured time-domain signal for the frequency of 100 MHz, while the dashed line represents the ideal signal waveform.
 
 % ------------------------------------------------------------------------------
 \section{Conclusion}
 \label{sec:conclusion}
 % ------------------------------------------------------------------------------
-A first prototype of a Riemann Pump in GaN technology has been presented to validate the concept of this current steering topology.
-The measurement results have shown the feasibility of synthesizing arbitrary waveforms at 100 MHz and the potential of the chosen technology promises to cover even higher frequencies.
+A first prototype of a Riemann Pump in \gls{gan} technology is presented to validate the concept of this current steering topology.
+The measurement results show the feasibility of synthesizing arbitrary waveforms at 100 MHz.
+The potential of the chosen technology promises to cover even higher frequencies to satisfy the condition for the new mobile communication standards.
 
 % ------------------------------------------------------------------------------
 % Appendices
