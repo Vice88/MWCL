@@ -240,12 +240,12 @@ Hence, this custom charge pump is named after the inventor of the Riemann integr
 \end{figure}
 % -----------------------------------------------------------------------------
 %
-Figure \ref{fig:schematic_multibit_rp} shows the schematic of the Riemann Pump, where the single stages are cascaded in parallel.
-The current-drive capability of the power transistors in parallel is increased linearly with the power of 2 to ensure the correct encoding.
-The digital driver circuit is marked with dashed lines and is necessary for each single stage cascaded in parallel.
-An implemented power amplifier, serving as the output load, enables to reduce the number of external components in the \gls{rffe}.
+Figure \ref{fig:schematic_multibit_rp} shows the schematic of the Riemann Pump, where the push-pull stages are cascaded in parallel.
+The current-drive capability of the power transistors in parallel is increased linearly with the power of 2 to ensure a correct encoding.
+The digital driver circuit is marked with dashed lines and is necessary for each single stage. % cascaded in parallel.
+It enables to control the power transistors, which are intended to be voltage-controlled current sources, with a digital bit stream.
+A co-integrated power amplifier, serving as the output load, enables to reduce the number of external components in the \gls{rffe}.
 The capacitive input impedance of the power amplifier makes it suitable for this concept.
-The driver circuit enables to control the power transistors, which are intended to be a voltage-controlled current sources, with a digital bit stream.
 Based on a charge pump the resulting output voltage at the load is defined as:
 %
 \begin{align}
@@ -253,18 +253,18 @@ Based on a charge pump the resulting output voltage at the load is defined as:
     \label{eq:output_voltage_integral}
 \end{align}
 %
-Equation \ref{eq:output_voltage_integral} states the dependence of the voltage through the current and time at the output load.
+Equation \ref{eq:output_voltage_integral} states that the voltage is proportional to the integral of the current to the load.
 This technique makes it possible to synthesize arbitrary voltage waveforms at the \gls{pa} by varying the current.
 Absolutely essential to convert digital input data into a defined analog output signal is to establish a defined set of current amplitudes which charge and discharge the output capacitance, here the input impedance of the \gls{pa}.
 %generate different output signals is to establish different current amplitudes to charge and discharge the output capacitor.
 %To generate different output signals it is necessary to establish different constant current amplitudes to charge and discharge the capacitor.
 For a good approximation of the synthesized signal, a high sampling frequency as well as stable current sources are needed.
 %Consistent current sources as well as a high sampling frequency were needed to ensure a high signal integrity.
-In Fig. \ref{fig:SlopeSynthSignal}(a) eight different slopes represent the change of the output voltage for a given sampling interval.
+In Figure \ref{fig:SlopeSynthSignal} (a) eight different slopes represent the change of the output voltage for a given sampling interval.
 % four different current amplitudes plus their direction times the sampling interval.
 These eight slopes correspond to a three-bit resolution of the DAC. 
 %To explain the concept in a proper way, eight different currents are established which corresponds to a three bit digital-to-analog converter.
-Figure \ref{fig:SlopeSynthSignal}(b) illustrates an example of a synthesized output signal using these slopes.
+Figure \ref{fig:SlopeSynthSignal} (b) illustrates an example of a synthesized output signal using these slopes.
 %
 % -----------------------------------------------------------------------------
 \begin{figure}[htb]
@@ -302,13 +302,13 @@ To prevent a signal delay caused by this driver circuit, this driver is also use
 \label{sec:assembly}
 % -----------------------------------------------------------------------------
 To the best of the author's knowledge, the first ever built demonstrator in \gls{gan} technology is presented.
-To ensure a feasible measurement setup, the \gls{rfdac} is realized with a two-bit resolution which is sufficient to prove the concept.
+To ensure a feasible measurement setup, the \gls{rfdac} is realized with a two-bit resolution, which is sufficient to prove the concept.
 %In order of limited measurement equipment the demonstrator is built with four inputs which corresponds to a two bit resolution.
 %The first ever built demonstrator to proof the concept of the Riemann Pump is presented in the following subsection.
-For the digital switching of the \gls{gan} power transistors a \gls{mmic} is used which has implemented a proper driver circuit \cite{MaroldtBruecknerQuayEtAl2014}.
+For the digital switching of the \gls{gan} power transistors a \gls{mmic} is used that has an implemented driver circuit \cite{MaroldtBruecknerQuayEtAl2014}.
 These \glspl{mmic} are designed and fabricated in the \SI{0.25}{\micro\meter} AlGaN/GaN HEMT technology by Fraunhofer IAF \cite{MaroldtDriverConcept}.
-Figure \ref{fig:assembled_demonstrator} (a) illustrates the schematic where the grey painted areas represent a single \gls{mmic}.
-In Fig. \ref{fig:assembled_demonstrator}(b) the layout of the realized demonstrator is shown.
+Figure \ref{fig:assembled_demonstrator} (a) illustrates the schematic, where the grey painted areas represent a single \gls{mmic}.
+In Figure \ref{fig:assembled_demonstrator} (b) the layout of the realized demonstrator is shown.
 %
 % -----------------------------------------------------------------------------
 \begin{figure}[htb]
@@ -326,7 +326,7 @@ The green rectangles represent off-chip bypass capacitors, and the black rectang
 Each \gls{mmic}, consisting of the grey highlighted circuit in Figure \ref{fig:assembled_demonstrator} (a), have got a via to the backside at the power transistors source potential.
 In fact of this via and the backside metallization it is necessary to isolate the \glspl{mmic} for the high-side transistors Q1 and Q3.
 This isolation is realized by an isolated pad on the substrate, which induces a critical heat transfer.
-In order to reduce the impact of phase delays of the signal the input and output lines as well as the bond wires are of the same length.
+In order to reduce the impact of phase delays of the signal, the input and output lines as well as the bond wires are of the same length.
 \\
 %In fact of this the heat transfer is not optimal since the transistors generate several watts.
 %Also two different layouts are designed to compare the property of heat transfer.
@@ -335,7 +335,7 @@ In order to reduce the impact of phase delays of the signal the input and output
 %This is undesired since the output of the high side stage is the source pin.
 %For the low side the source pin is grounded and the output is the drain of the power amplifier.
 The first Riemann Pump in GaN technology is shown in Figure \ref{fig:photo_chipconnection_demonstrator}.
-A close-up of assembled \glspl{mmic} is shown in Figure \ref{fig:photo_chipconnection_demonstrator} (a) according to the layout in Figure \ref{fig:assembled_demonstrator}(b).
+A close-up of assembled \glspl{mmic} is shown in Figure \ref{fig:photo_chipconnection_demonstrator} (a) according to the layout in Figure \ref{fig:assembled_demonstrator} (b).
 This close-up is highlighted in the photography of the demonstrator in Figure \ref{fig:photo_chipconnection_demonstrator} (b).
 % -----------------------------------------------------------------------------
 \begin{figure}[htb]
@@ -348,7 +348,7 @@ This close-up is highlighted in the photography of the demonstrator in Figure \r
 	\end{scriptsize}
 \end{figure}
 % -----------------------------------------------------------------------------
-The demonstrator is of the size 50x60 $\text{mm}^2$, has four digital input and one analog output line and DC supply connectors with decoupling network.
+The demonstrator is of the size 50x60 $\text{mm}^2$, has four digital input and one analog output line, and DC supply connectors with decoupling network.
 The analog output is at the top middle while the other four signal paths are the digital inputs.
 %
 % ------------------------------------------------------------------------------
@@ -358,9 +358,9 @@ The analog output is at the top middle while the other four signal paths are the
 
 %The theoretical waveforms are experimentally verified using the demonstrator which is assembled with four MMICs as shown in Figure \ref{fig:assembled_demonstrator} (b). 
 To prove that the built demonstrator can convert digital input streams into an analog output signal, a time-domain measurement is performed.
-A custom control and measurement setup was applied to ensure excitation of the \gls{dut} with correct amplitude and phase.
-Four input signals are applied by an \gls{awg} (Keysight M8195A) to represent the digital data stream. 
-These signals had to be amplified by a broadband pre-amplifier and shifted in the DC offset with bias tees to ensure proper switching of the transistors Qb1, Qb2, Qb3 and Qb4 at the input.
+A custom control and measurement setup is applied to ensure excitation of the \gls{dut} with correct amplitude and phase.
+Four square-wave signals are applied by an \gls{awg} (Keysight M8195A) to represent the digital data stream. 
+These signals have to be amplified by a broadband pre-amplifier and shifted in the DC offset with bias tees to ensure proper switching of the transistors Qb1, Qb2, Qb3 and Qb4 at the input.
 First of all, a stability analysis is performed to ensure that the \gls{dut} does not oscillate.
 Further, both high-side transistors (Q1, Q3) are controlled with an in-phase signal illustrated in Figure \ref{fig:meas_Input_Output_RLoad_100M_SmallSize_Paper}(a) (grey), while the inverse signal (black) is applied to both low-side transistors (Q2, Q4).
 This differential digital input stream is generated by the \gls{awg} for a data rate of 200 Mbps in the time-domain.
@@ -380,13 +380,13 @@ The \gls{dut} is loaded with a $50 \Omega$ resistor and is controlled by this in
 %
 As expected for a push-pull measurement the output signal switches between Vdd (5V) and GND (0V).
 The dashed line represents the output of an ideal switch while the solid line shows the measured output signal of the \gls{dut}.
-To show the feasibility to synthesize different output signals it is necessary to generate different currents which are integrated at a capacitor, as mentioned in Chapter \ref{sec:theory}.
+To show the feasibility to synthesize different output signals it is necessary to generate different currents, which are integrated at a capacitor, as mentioned in Chapter \ref{sec:theory}.
 Therefore the resistive load is replaced by a capacitive load, representing the capacitive input impedance characteristic of a \gls{pa}.
 In-phase switching of both high-side and low-side transistors led to the results shown in Figure \ref{fig:meas_Output_CLoad_100M_1io_3io} (b).
 Here the capacitor is charged with the maximum available current as both high-side transistors simultaneously drive current to the load, hence the biggest slope is chosen.
 Encoding the biggest slope with the bit-sequence "00" the corresponding most negative slope is "11" while "01" and "10" contribute to the smaller slopes in between.
 In order to select the slope $1 i_0$ both high-side as well as both low-side transistors are driven with anti-phase signals.
-The slope $1 i_0$ is illustrated in Figure \ref{fig:meas_Output_CLoad_100M_1io_3io}(a) while the bigger slope $3 i_0$ is shown in (b).
+The slope $1 i_0$ is illustrated in Figure \ref{fig:meas_Output_CLoad_100M_1io_3io} (a) while the slope $3 i_0$ is shown in (b).
 %
 % -----------------------------------------------------------------------------
 \begin{figure}[htb]
@@ -413,7 +413,7 @@ The notation of both figures is the same, the solid black line represents the me
 % ------------------------------------------------------------------------------
 A first prototype of a Riemann Pump in \gls{gan} technology is presented to validate the concept of this current steering topology.
 The measurement results show the feasibility of synthesizing arbitrary waveforms at 100 MHz.
-The potential of the chosen technology promises to cover even higher frequencies, the concept integrated in a \gls{mmic}, to satisfy the condition for the new mobile communication standards.
+The potential of the chosen technology promises to cover even higher frequencies, for \gls{mmic} integration of the concept, to satisfy the condition for the new mobile communication standards.
 %The next step is to integrate the presented hybrid assembly into a \gls{mmic}.
 
 % ------------------------------------------------------------------------------
