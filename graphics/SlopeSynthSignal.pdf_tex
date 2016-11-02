@@ -1,0 +1,80 @@
+%% Creator: Inkscape 0.91_64bit, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'SlopeSynthSignal.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{251bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.44223108)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{SlopeSynthSignal.pdf}}%
+    \put(0.68226438,0.03091442){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Time}}}%
+    \put(0.41791207,0.21316441){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lb]{\smash{Amplitude}}}}%
+    \put(0.75878948,0.40270901){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{desired sampled signal}}}%
+    \put(0.76030473,0.37251085){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{synthesized signal}}}%
+    \put(0.42480146,0.05237088){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_0$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{SlopeSynthSignal.pdf}}%
+    \put(0.09432398,0.06797093){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\Delta$ t = $1/f_s$}}}%
+    \put(0.24955149,0.14357451){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$s(6)/f_s$}}}%
+    \put(0.24307069,0.09997495){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$s(7)/f_s$}}}%
+    \put(0.26051657,0.0971235){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{SlopeSynthSignal.pdf}}%
+    \put(0.16586215,0.00542087){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(a)}}}%
+    \put(0.68735498,0.00506582){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(b)}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{SlopeSynthSignal.pdf}}%
+    \put(0.24955149,0.19138328){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$s(5)/f_s$}}}%
+    \put(0.24955149,0.23257345){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$s(4)/f_s$}}}%
+    \put(0.24955149,0.27990172){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$s(3)/f_s$}}}%
+    \put(0.24955149,0.33480958){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$s(2)/f_s$}}}%
+    \put(0.24955149,0.38261834){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$s(1)/f_s$}}}%
+    \put(0.24955149,0.42301337){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$s(0)/f_s$}}}%
+    \put(0.48854649,0.05237088){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_1$}}}%
+    \put(0.56822777,0.05237088){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_2$}}}%
+    \put(0.64790902,0.05237088){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_3$}}}%
+    \put(0.72759033,0.05237088){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_4$}}}%
+    \put(0.80727159,0.05237088){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_5$}}}%
+    \put(0.88582603,0.05237088){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_6$}}}%
+  \end{picture}%
+\endgroup%

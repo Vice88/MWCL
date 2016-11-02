@@ -1,0 +1,83 @@
+%% Creator: Inkscape 0.91_64bit, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'schematic_RP_multibit_smallScale.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{230bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.60869565)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{schematic_RP_multibit_smallScale.pdf}}%
+    \put(0.19885531,0.00715937){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdn}}}%
+    \put(0.20211812,0.24962456){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdp}}}%
+    \put(0.19267146,0.29618812){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdn}}}%
+    \put(0.18802871,0.54790198){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdp}}}%
+    \put(0.34616954,0.54119236){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdd}}}%
+    \put(0.02616344,0.05581681){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\neg$ Vin}}}%
+    \put(0.04116514,0.34996083){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vin}}}%
+    \put(0.88288472,0.32250858){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$V_{\text{out}}$}}}%
+    \put(0.10793034,0.00715937){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdc}}}%
+    \put(0.10613496,0.29618812){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdc}}}%
+    \put(0.24027551,0.07689018){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Qb2}}}%
+    \put(0.23967431,0.12940992){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{R2}}}%
+    \put(0.24027551,0.19625372){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Ql2}}}%
+    \put(0.24027551,0.38341149){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Qb1}}}%
+    \put(0.23967431,0.43030454){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{R1}}}%
+    \put(0.24027551,0.5059582){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Ql1}}}%
+    \put(0.38562885,0.47412799){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Q1}}}%
+    \put(0.38562829,0.18192988){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Q2}}}%
+    \put(0.94262909,0.3482118){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$RF_{\text{out}}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{schematic_RP_multibit_smallScale.pdf}}%
+    \put(0.49997643,0.54119236){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdd}}}%
+    \put(0.53943572,0.47412799){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2x Q1}}}%
+    \put(0.53943513,0.18192988){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2x Q2}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{schematic_RP_multibit_smallScale.pdf}}%
+    \put(0.67451872,0.54296695){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdd}}}%
+    \put(0.71397801,0.47590258){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{4x Q1}}}%
+    \put(0.71397742,0.18370446){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{4x Q2}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{schematic_RP_multibit_smallScale.pdf}}%
+    \put(0.77951417,0.37169483){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$i_{\text{out}}$}}}%
+  \end{picture}%
+\endgroup%

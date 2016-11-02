@@ -1,0 +1,112 @@
+%% Creator: Inkscape 0.91_64bit, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'circuit_schematic_layout_ddrixy6.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{251bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.55776892)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{circuit_schematic_layout_ddrixy6.pdf}}%
+    \put(0.66440488,0.40905317){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdn}}}%
+    \put(0.8134084,0.40905317){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdn}}}%
+    \put(0.61375724,0.41047021){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdp}}}%
+    \put(0.86608122,0.41047021){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdp}}}%
+    \put(0.72997929,0.41059871){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Output}}}%
+    \put(0.93152601,0.30304853){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{In nA}}}%
+    \put(0.93071592,0.19773415){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{In A}}}%
+    \put(0.53820495,0.20519736){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{In B}}}%
+    \put(0.53577488,0.29890231){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{In nB}}}%
+    \put(0.86502474,0.08578568){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdp}}}%
+    \put(0.80709864,0.08744422){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdn}}}%
+    \put(0.7394761,0.08744422){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdd}}}%
+    \put(0.66861351,0.08744422){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdn}}}%
+    \put(0.61110408,0.08578568){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdp}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{circuit_schematic_layout_ddrixy6.pdf}}%
+    \put(0.75129788,-0.00769414){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(b)}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{circuit_schematic_layout_ddrixy6.pdf}}%
+    \put(0.11530494,0.02462179){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdn}}}%
+    \put(0.11829478,0.24042675){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdp}}}%
+    \put(0.0339872,0.10188883){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{In nB}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{circuit_schematic_layout_ddrixy6.pdf}}%
+    \put(0.11626826,0.31647613){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdn}}}%
+    \put(0.1128836,0.53228107){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdp}}}%
+    \put(0.03851853,0.39374314){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{In B}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{circuit_schematic_layout_ddrixy6.pdf}}%
+    \put(0.41780139,0.39374316){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{In A}}}%
+    \put(0.40064395,0.09666282){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{In nA}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{circuit_schematic_layout_ddrixy6.pdf}}%
+    \put(0.30593693,0.2862982){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{50 Ohm}}}%
+    \put(0.45013805,0.29143232){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Out}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{circuit_schematic_layout_ddrixy6.pdf}}%
+    \put(0.35685341,0.2416153){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdp}}}%
+    \put(0.35434875,0.02462179){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdn}}}%
+    \put(0.35791438,0.31709212){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdn}}}%
+    \put(0.3575986,0.53228107){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdp}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{circuit_schematic_layout_ddrixy6.pdf}}%
+    \put(0.18840642,0.53073647){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdd}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{circuit_schematic_layout_ddrixy6.pdf}}%
+    \put(0.26808765,0.53073647){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Vdd}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{circuit_schematic_layout_ddrixy6.pdf}}%
+    \put(0.22715841,-0.00675825){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{(a)}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{circuit_schematic_layout_ddrixy6.pdf}}%
+    \put(0.06137978,0.50104518){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Ql1}}}%
+    \put(0.15079726,0.38364026){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Qb1}}}%
+    \put(0.17545484,0.43596822){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Q1}}}%
+    \put(0.28547039,0.43596822){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Q3}}}%
+    \put(0.39702419,0.49971324){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Ql3}}}%
+    \put(0.29601524,0.38444885){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Qb3}}}%
+    \put(0.39702419,0.21286065){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Ql4}}}%
+    \put(0.28547039,0.14911563){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Q4}}}%
+    \put(0.29769609,0.0925855){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Qb4}}}%
+    \put(0.16754211,0.14911563){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Q2}}}%
+    \put(0.14911642,0.09174508){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Qb2}}}%
+    \put(0.06053936,0.21335218){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Ql2}}}%
+    \put(0.13822272,0.42976819){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{R1}}}%
+    \put(0.32259176,0.42976819){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{R3}}}%
+    \put(0.32259176,0.13654107){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{R4}}}%
+    \put(0.13573327,0.13822196){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{R2}}}%
+  \end{picture}%
+\endgroup%
