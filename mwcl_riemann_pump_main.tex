@@ -181,7 +181,8 @@ Measurement results yield triangular signals with a baseband frequency of 100 MH
 \label{sec:introduction}
 \IEEEPARstart{T}{he} immense demand for high-data rates in mobile communication leads researchers to investigate new architectures to improve the conventional concepts
 for data conversion and power amplification.
-One concept, that improves the performance of the DAC-PA chain, is the Riemann Pump \cite{VeyracRivetDevalEtAl2014}, \cite{DevalRivetVeyrac2015}.
+One concept that improves the performance of the DAC-PA chain is the Riemann Pump.
+A description and simulations regarding this concept are described in \cite{VeyracRivetDevalEtAl2014}, \cite{DevalRivetVeyrac2015}.
 The aim to develop a Riemann Pump in \gls{gan} technology is to generate a high power modulated microwave signal that is suitable for the next generation of mobile communication.
 The possibility to cover a frequency range from DC to 6 GHz enables this architecture to operate with all common mobile communication standards.
 %Due to the fact that the sum of several signals of the common mobile communication standard can be generated, a concurrent transmitter is built which will increases the data rate.
@@ -193,6 +194,7 @@ As the power consumption of \gls{gan} \glspl{hemt} typically exceeds the consump
 The presented concept of the Riemann Pump improves the \gls{snr} compared to conventional \gls{pcm} converters.
 \\
 This paper presents the first realization of a Riemann Pump in \gls{gan} technology.
+In contrast to the CMOS approach in \cite{VeyracRivetDevalEtAl2016} where simulations, a CMOS layout and post-layout simulations are carried out, this paper verifies the concept with measurement results.
 The new concept of the Riemann Pump shows the potential to improve the data rate for base station transmitters.
 A circuit is devised and designed in Chapter \ref{sec:theory} based on the presented idea.
 Chapter \ref{sec:assembly} covers the implementation and assembly of a first Riemann Pump demonstrator.
@@ -416,7 +418,10 @@ The slope $1 i_0$ is illustrated in Figure \ref{fig:meas_Output_CLoad_100M_1io_3
 %% !! corresponding simulation data !!
 
 The notations of both figures are the same, the solid black line represents the measured time-domain signal for the frequency of 100 MHz, while the dashed line represents the ideal signal waveform.
-The measurement yields an output power of 1.38 W for Vdd = 5V, which shows the possibility to increase the output power to several watts by applying voltages of up to 28V for Vdd.
+The measurement results in Figure \ref{fig:meas_Output_CLoad_100M_1io_3io} present the output of the digital-to-analog conversion, while a co-integrated \gls{pa} is capable to boost this signal to the wanted power of a transmitter architecture in a base station.
+%This output signal can drive the input of a power amplifier, which has a gate periphery of  in the in-house technology  to reach the desired 20 W of power.
+%%The measurement yields an output power of 1.38 W for Vdd = 5V although this 
+%which shows the possibility to increase the output power to several watts by applying voltages of up to 28V for Vdd.
 
 
 % ------------------------------------------------------------------------------
@@ -427,7 +432,9 @@ A prototype of a Riemann Pump in \gls{gan} technology is presented to validate t
 The measurement results show the feasibility of synthesizing arbitrary waveforms at 100 MHz.
 The potential of the chosen technology promises to cover even higher frequencies, for \gls{mmic} integration 
 of the concept, to satisfy the condition for the new mobile communication standards.
-%The next step is to integrate the presented hybrid assembly into a \gls{mmic}.
+A co-integration of a \gls{pa} is planned to provide high power signals for a base station.
+% need for a transmitter architecture in a base station. 
+%A next step is to co-implement a broadband power amplifier which is capable to provide output power of up to 20W.
 
 % ------------------------------------------------------------------------------
 % Appendices
